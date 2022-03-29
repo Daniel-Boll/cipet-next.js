@@ -3,7 +3,7 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 
 import createEmotionCache from "@utils/emotionCache";
-import darkTheme from "@styles/theme/darkTheme";
+import lightTheme from "@styles/theme/lightTheme";
 
 import "@styles/globals.css";
 
@@ -18,7 +18,7 @@ function MyApp({
 }: _AppType) {
   return (
     <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
