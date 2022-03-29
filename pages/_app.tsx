@@ -4,7 +4,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { SessionProvider } from "next-auth/react";
 
 import createEmotionCache from "@utils/emotionCache";
-import darkTheme from "@styles/theme/darkTheme";
+import lightTheme from "@styles/theme/lightTheme";
 
 import "@styles/globals.css";
 
@@ -20,7 +20,7 @@ function MyApp({
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
       <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={lightTheme}>
           <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
