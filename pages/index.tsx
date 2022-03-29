@@ -8,6 +8,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Home: NextPage = () => {
+  const buttonStyle = {
+    color: "white",
+    textTransform: "none",
+    fontSize: "1rem",
+    textShadow: "1px 1px 4px rgba(0, 0, 0, 0.9)",
+  };
+
   return (
     <Box sx={styles.container}>
       <Head>
