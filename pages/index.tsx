@@ -4,6 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import Footer from "Footer";
 
 const Home: NextPage = () => {
   const buttonStyle = {
@@ -66,38 +67,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <footer id="contact" className={styles.footer}>
-        <span>©CIPET - PETComp</span>
-        <div className={styles.socialMediaLinks}>
-          <span>
-            <Image
-              src="/icons/github.svg"
-              width={20}
-              height={20}
-              alt="github icon"
-            />{" "}
-            /matozinho
-          </span>
-          <span>
-            <Image
-              src="/icons/instagram.svg"
-              width={20}
-              height={20}
-              alt="instagram icon"
-            />{" "}
-            @lima_felipi
-          </span>
-          <span>
-            <Image
-              src="/icons/facebook.svg"
-              width={20}
-              height={20}
-              alt="facebook icon"
-            />{" "}
-            /Felipi Lima Matozinho
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
