@@ -5,6 +5,7 @@ import {
   CardHeader,
   CssBaseline,
   Divider,
+  Grid,
   Paper,
 } from "@mui/material";
 import { FC } from "react";
@@ -18,28 +19,29 @@ type FormProps = {
 
 const Form: FC<FormProps> = (props) => {
   return (
-    <Box component="form" noValidate onSubmit={props.onSubmit}>
+    <Box
+      component="form"
+      noValidate
+      onSubmit={props.onSubmit}
+      sx={{ width: "100%" }}
+    >
       <CssBaseline />
       <Card>
         <CardHeader title={props.title} subheader={props.subHeader} />
         <Divider />
-        <CardContent>{props.children}</CardContent>
+        <CardContent>
+          <Grid container spacing={2}>
+            {props.children}
+          </Grid>
+        </CardContent>
         <Divider />
-      </Card>
-      <Paper
-        sx={{
-          display: "flex",
-          position: "sticky",
-          // zIndex: 9,
-          bottom: 0,
-          left: 0,
-          right: 0,
-        }}
-        elevation={3}
-      >
         <Box sx={{ flexGrow: 1 }} />
-        {props.actions && <Box sx={{ m: 2 }}>{props.actions}</Box>}
-      </Paper>
+        {props.actions && (
+          <Box sx={{ display: "flex", justifyContent: "flex-end", m: 2 }}>
+            {props.actions}
+          </Box>
+        )}
+      </Card>
     </Box>
   );
 };
