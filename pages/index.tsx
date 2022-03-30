@@ -1,52 +1,56 @@
-import { Button } from "@mui/material";
+import { Footer } from "@components/Footer";
+import { Button, Container, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { styles } from "@styles/home.styles";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import Footer from "Footer";
 
 const Home: NextPage = () => {
-  const buttonStyle = {
-    color: "white",
-    textTransform: "none",
-    fontSize: "1rem",
-    textShadow: "1px 1px 4px rgba(0, 0, 0, 0.9)",
-  };
-
   return (
-    <div className={styles.container}>
+    <Box sx={styles.container}>
       <Head>
         <title>Blog Pessoal</title>
         <meta name="Blog pessoal" content="Blog Pessoal criado no CIPET" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.header}>
+      <Box sx={styles.header}>
         <Link href="#aboutMe" passHref>
-          <Button sx={buttonStyle}>Sobre Mim</Button>
+          <Button sx={styles.headerButton}>Sobre Mim</Button>
         </Link>
         <Link href="/projects" passHref>
-          <Button sx={buttonStyle}>Projetos</Button>
+          <Button sx={styles.headerButton}>Projetos</Button>
         </Link>
         <Link href="#contact" passHref>
-          <Button sx={buttonStyle}>Contato</Button>
+          <Button sx={styles.headerButton}>Contato</Button>
         </Link>
-      </header>
+      </Box>
 
-      <section className={styles.landing}>
-        <div className={styles.mainLandingText}>
-          <h1>Felipi Lima Matozinho</h1>
-          <p>Estudante de Computação</p>
-          <p>Desenvolvedor React</p>
-          <p>Aluno Ciência da Computação na UNIOESTE</p>
-        </div>
-      </section>
+      <Box sx={styles.landing}>
+        <Container sx={styles.mainLandingText}>
+          <Typography variant="h3" sx={styles.mainLandingTitle}>
+            Felipi Lima Matozinho
+          </Typography>
+          <Typography variant="h4" sx={styles.subTextLanding}>
+            Estudante de Computação
+          </Typography>
+          <Typography variant="h4" sx={styles.subTextLanding}>
+            Desenvolvedor React
+          </Typography>
+          <Typography variant="h4" sx={styles.subTextLanding}>
+            Aluno Ciência da Computação na UNIOESTE
+          </Typography>
+        </Container>
+      </Box>
 
-      <section id="aboutMe" className={styles.aboutMe}>
-        <h2>Sobre Mim</h2>
-        <div>
-          <article>
+      <Box id="aboutMe" sx={styles.aboutMe}>
+        <Typography variant="h4" sx={styles.aboutMeTitle}>
+          Sobre Mim
+        </Typography>
+        <Box sx={{ display: "flex" }}>
+          <Container sx={styles.aboutMeArticle}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry&aposs standard dummy
             text ever since the 1500s, when an unknown printer took a galley of
@@ -56,19 +60,19 @@ const Home: NextPage = () => {
             the 1960s with the release of Letraset sheets containing Lorem Ipsum
             passages, and more recently with desktop publishing software like
             Aldus PageMaker including versions of Lorem Ipsum.
-          </article>
-          <div className={styles.readerWrapper}>
+          </Container>
+          <Box sx={styles.readerWrapper}>
             <Image
               src="/images/reading.svg"
               width={350}
               height={380}
               alt="illustrative image"
             />
-          </div>
-        </div>
-      </section>
+          </Box>
+        </Box>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 };
 

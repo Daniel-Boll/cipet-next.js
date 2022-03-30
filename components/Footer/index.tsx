@@ -1,12 +1,13 @@
-import Image from 'next/image';
-import styles from './styles.module.css';
+import { Box, Typography } from "@mui/material";
+import Image from "next/image";
+import { styles } from "./styles";
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <footer id="contact" className={styles.footer}>
-      <span>©CIPET - PETComp</span>
-      <div className={styles.socialMediaLinks}>
-        <span>
+    <Box id="contact" sx={styles.footer}>
+      <Typography>©CIPET - PETComp</Typography>
+      <Box sx={styles.socialMediaLinksContainer}>
+        <Box sx={styles.socialMediaLinks}>
           <Image
             src="/icons/github.svg"
             width={20}
@@ -14,8 +15,8 @@ const Footer = () => {
             alt="github icon"
           />{" "}
           /matozinho
-        </span>
-        <span>
+        </Box>
+        <Box sx={styles.socialMediaLinks}>
           <Image
             src="/icons/instagram.svg"
             width={20}
@@ -23,8 +24,8 @@ const Footer = () => {
             alt="instagram icon"
           />{" "}
           @lima_felipi
-        </span>
-        <span>
+        </Box>
+        <Box sx={styles.socialMediaLinks}>
           <Image
             src="/icons/facebook.svg"
             width={20}
@@ -32,10 +33,8 @@ const Footer = () => {
             alt="facebook icon"
           />{" "}
           /Felipi Lima Matozinho
-        </span>
-      </div>
-    </footer>
+        </Box>
+      </Box>
+    </Box>
   );
 };
-
-export default Footer;
