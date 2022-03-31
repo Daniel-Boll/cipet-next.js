@@ -2,12 +2,15 @@ import { Footer } from "@components/Footer";
 import { Button, Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { styles } from "@styles/home.styles";
+import { useTranslate } from "@utils/useTranslate";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
 const Home: NextPage = () => {
+  const i18n = useTranslate("home");
+
   return (
     <Box sx={styles.container}>
       <Head>
@@ -18,48 +21,42 @@ const Home: NextPage = () => {
 
       <Box sx={styles.header}>
         <Link href="#aboutMe" passHref>
-          <Button sx={styles.headerButton}>Sobre Mim</Button>
+          <Button sx={styles.headerButton}>{i18n.headerButtons.aboutMe}</Button>
         </Link>
         <Link href="/projects" passHref>
-          <Button sx={styles.headerButton}>Projetos</Button>
+          <Button sx={styles.headerButton}>
+            {i18n.headerButtons.projects}
+          </Button>
         </Link>
         <Link href="#contact" passHref>
-          <Button sx={styles.headerButton}>Contato</Button>
+          <Button sx={styles.headerButton}>{i18n.headerButtons.contact}</Button>
         </Link>
       </Box>
 
       <Box sx={styles.landing}>
         <Container sx={styles.mainLandingText}>
           <Typography variant="h3" sx={styles.mainLandingTitle}>
-            Felipi Lima Matozinho
+            {i18n.landingSection.mainTitle}
           </Typography>
           <Typography variant="h4" sx={styles.subTextLanding}>
-            Estudante de Computação
+            {i18n.landingSection.subText1}
           </Typography>
           <Typography variant="h4" sx={styles.subTextLanding}>
-            Desenvolvedor React
+            {i18n.landingSection.subText2}
           </Typography>
           <Typography variant="h4" sx={styles.subTextLanding}>
-            Aluno Ciência da Computação na UNIOESTE
+            {i18n.landingSection.subText3}
           </Typography>
         </Container>
       </Box>
 
       <Box id="aboutMe" sx={styles.aboutMe}>
         <Typography variant="h4" sx={styles.aboutMeTitle}>
-          Sobre Mim
+          {i18n.aboutMeSection.title}
         </Typography>
         <Box sx={{ display: "flex" }}>
           <Container sx={styles.aboutMeArticle}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&aposs standard dummy
-            text ever since the 1500s, when an unknown printer took a galley of
-            type and scrambled it to make a type specimen book. It has survived
-            not only five centuries, but also the leap into electronic
-            typesetting, remaining essentially unchanged. It was popularised in
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum
-            passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
+            {i18n.aboutMeSection.description}
           </Container>
           <Box sx={styles.readerWrapper}>
             <Image

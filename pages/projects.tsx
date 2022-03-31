@@ -2,14 +2,17 @@ import { Footer } from "@components/Footer";
 import { ProjectCard } from "@components/ProjectCard";
 import { Box, Divider, Typography } from "@mui/material";
 import { styles } from "@styles/project.styles";
+import { useTranslate } from "@utils/useTranslate";
 import { NextPage } from "next";
 
 const Projects: NextPage = () => {
+  const i18n = useTranslate("projects");
+
   return (
     <Box sx={styles.container}>
       <Box>
         <Typography variant="h3" sx={styles.pageTitle}>
-          Projetos
+          {i18n.title}
         </Typography>
         <Divider sx={{ width: "95%", margin: "0 auto" }} />
       </Box>
