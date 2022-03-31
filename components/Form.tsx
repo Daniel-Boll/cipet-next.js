@@ -14,17 +14,12 @@ type FormProps = {
   title?: string;
   subHeader?: string;
   actions?: JSX.Element;
-  onSubmit: () => void;
+  onSubmit: (e?: any) => void;
 };
 
 const Form: FC<FormProps> = (props) => {
   return (
-    <Box
-      component="form"
-      noValidate
-      onSubmit={props.onSubmit}
-      sx={{ width: "100%" }}
-    >
+    <Box component="form" onSubmit={props.onSubmit} sx={{ width: "100%" }}>
       <CssBaseline />
       <Card>
         <CardHeader title={props.title} subheader={props.subHeader} />
