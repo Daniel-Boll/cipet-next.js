@@ -11,7 +11,8 @@ const clientCredentials = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = getApps().length ? initializeApp(clientCredentials) : getApp();
+const app =
+  getApps().length === 0 ? initializeApp(clientCredentials) : getApp();
 
 const auth = getAuth(app);
 const database = getFirestore(app);
