@@ -2,14 +2,14 @@ import { Card, CardContent, CardMedia, Chip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { styles } from "./styles";
 
-export interface cardData {
+export interface ProjectData {
   title: string;
   description: string;
   image: string;
   tags: string[];
 }
 
-export const ProjectCard = (props: cardData) => {
+export const ProjectCard = (props: ProjectData) => {
   const { title, description, image, tags } = props;
 
   return (
