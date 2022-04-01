@@ -1,31 +1,17 @@
 import { Footer } from "@components/Footer";
 import { ProjectCard, ProjectData } from "@components/ProjectCard";
-import { Box, CircularProgress, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { styles } from "@styles/project.styles";
 import { useTranslate } from "@utils/useTranslate";
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { GetStaticProps } from "next";
 import { api } from "service/api";
 
-const Projects: NextPage = () => {
-  const i18n = useTranslate("projects");
-  const [projects, setProjects] = useState<ProjectData[]>([]);
-  const [loading, setLoading] = useState(true);
+type ProjectProps = {
+  projects: ProjectData[];
+};
 
-  useEffect(() => {
-    setLoading(true);
-    (async () => {
-      try {
-        const resp = await api.get("project/getProjects");
-        if (resp.projects.length > 0) {
-          setProjects(resp.projects);
-        }
-      } catch (error) {
-        console.debug("err at project.tsx", error);
-      }
-      setLoading(false);
-    })();
-  }, []);
+const Projects = ({ projects }: ProjectProps) => {
+  const i18n = useTranslate("projects");
 
   return (
     <Box sx={styles.container}>
@@ -36,9 +22,7 @@ const Projects: NextPage = () => {
         <Divider sx={{ width: "95%", margin: "0 auto" }} />
       </Box>
       <Box sx={styles.main}>
-        {loading ? (
-          <CircularProgress />
-        ) : projects.length > 0 ? (
+        {projects?.length > 0 ? (
           projects.map((project: ProjectData, index: number) => (
             <ProjectCard
               key={index}
@@ -58,3 +42,16 @@ const Projects: NextPage = () => {
 };
 
 export default Projects;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const resp = await api.get("project/getProjects");
+
+  const projects = resp.projects ? resp.projects : [];
+
+  return {
+    props: {
+      projects: projects,
+    },
+    revalidate: 60 * 60, // a cada 1 hora
+  };
+};
