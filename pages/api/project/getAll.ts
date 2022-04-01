@@ -11,7 +11,7 @@ type Error = {
   error: unknown;
 };
 
-const getProjects = async (
+const getAll = async (
   _: NextApiRequest,
   res: NextApiResponse<Data | Error>
 ) => {
@@ -23,9 +23,9 @@ const getProjects = async (
       projects: docs,
     });
   } catch (err) {
-    console.log("err at getProjects", err);
+    console.log("err at projects/getAll", err);
     return res.status(400).json({ error: err });
   }
 };
 
-export default getProjects;
+export default getAll;

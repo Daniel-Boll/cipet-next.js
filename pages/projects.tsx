@@ -44,7 +44,7 @@ const Projects = ({ projects }: ProjectProps) => {
 export default Projects;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resp = await api.get("project/getProjects");
+  const resp = await api.get("project/getAll");
 
   const projects = resp.projects ? resp.projects : [];
 
